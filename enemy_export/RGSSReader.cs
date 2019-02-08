@@ -45,6 +45,7 @@ namespace enemy_export
                 enemy.name = name;
                 string special = Util.readString(IntPtr.Add(data, 8));
                 if (special.StartsWith(";")) special = special.Substring(1);
+                enemy.id = id;
                 enemy.special = special;
                 enemy.maxhp = Marshal.ReadInt32(IntPtr.Add(data, 20));
                 enemy.maxsp = Marshal.ReadInt32(IntPtr.Add(data, 24));

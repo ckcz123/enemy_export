@@ -75,12 +75,13 @@ namespace enemy_export
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string content = "// JS格式的怪物数据，请自行打开enemys.js文件并复制粘贴\n[\n";
+            string content = "// JS格式的怪物数据，请自行打开enemys.js文件并复制粘贴\n" +
+                             "var enemys_fcae963b_31c9_42b4_b48c_bb48d09f3f80 = \n{\n";
             enemies.ForEach(enemy =>
             {
                 content += "    "+enemy.toJS();
             });
-            content += "]\n";
+            content += "}\n";
           
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Title = "导出成JS格式";
@@ -124,14 +125,14 @@ namespace enemy_export
                     ExcelHelper excelHelper = new ExcelHelper();
                     excelHelper.addLine(new []
                     {
-                        "名称", "MaxHP", "MaxSP", "力量", "灵巧", "速度", "魔力", "攻击力", "防御力",
+                        "编号", "名称", "MaxHP", "MaxSP", "力量", "灵巧", "速度", "魔力", "攻击力", "防御力",
                         "魔法防御", "回避修正", "特殊属性", "金币", "经验"
                     });
                     enemies.ForEach(enemy =>
                     {
                         excelHelper.addLine(new object[]
                         {
-                            enemy.name, enemy.maxhp, enemy.maxsp, enemy.strength, enemy.dexterity, enemy.speed, 
+                            enemy.id, enemy.name, enemy.maxhp, enemy.maxsp, enemy.strength, enemy.dexterity, enemy.speed, 
                             enemy.magic, enemy.atk, enemy.def, enemy.mdef, enemy.dodge, enemy.special, enemy.money, enemy.experience
                         });
                     });

@@ -20,9 +20,9 @@ namespace enemy_export
 
         public string toJS()
         {
-            return string.Format("{{'name': '{0}', 'hp': {1}, 'atk': {2}, 'def': {3}, 'money': {4}," +
-                                 " 'experience': {5}, 'point': 0, 'special': {6}{7}{8}}},\n",
-                                 name, maxhp, atk, def, money, experience, getSpecial(),
+            return string.Format("'exEnemy{0}': {{'name': '{1}', 'hp': {2}, 'atk': {3}, 'def': {4}, 'money': {5}," +
+                                 " 'experience': {6}, 'point': 0, 'special': {7}{8}{9}}},\n",
+                                 id, name, maxhp, atk, def, money, experience, getSpecial(),
                                  special.Length==0?"":" /*"+special+"*/", extra());
         }
 
@@ -70,6 +70,7 @@ namespace enemy_export
             return content;
         }
 
+        public int id;
         public int maxhp;
         public int maxsp;
         public int strength;

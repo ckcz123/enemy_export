@@ -39,7 +39,7 @@ namespace enemy_export
 
         public void save(string filename)
         {
-            oRng = oSheet.get_Range("A1", "N1");
+            oRng = oSheet.get_Range("A1", "O1");
             oRng.EntireColumn.AutoFit();
 
             File.Delete(filename);
